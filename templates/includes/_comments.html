@@ -1,0 +1,50 @@
+{% if session.logged_in %}
+
+{% from "includes/_formhelpers.html" import render_field %}
+
+<div class="leave-comment" id="comments">
+
+<div class="leave-comment-title">Leave a Comment</div>
+
+<form method="POST">
+{{ form.csrf_token }}
+{{ render_field(form.comment, class = 'form-control', rows = 2, placeholder = 'enter your comment here') }}
+
+<div class="text-center">
+<button type="submit" class="btn btn-dark mt-2">Submit</button>
+</div>
+
+</form>
+
+</div>
+
+{% else %}
+
+<div class="d-flex justify-content-center">
+<div class="alert alert-info text-center w-50" role="alert">
+    You must sign in to write a comment.
+</div>
+</div>
+
+{% endif %}
+
+
+
+{% if comments %}
+
+{% for comment in comments %}
+
+<div class="media mb-4">
+    <div class="media-body">
+        <h5 class="mt-0"><a class="comment-link" href="/user/{{comment.username}}">{{comment.username}}</a></h5>
+    {{comment.comment}}
+    </div>
+</div>
+
+{% endfor %}
+
+{% endif %}
+
+
+
+

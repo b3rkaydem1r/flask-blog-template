@@ -1,0 +1,36 @@
+{% include 'includes/_header.html' %}
+
+{% if posts %}
+
+<table class="table table-hover text-center">
+  <thead>
+    <tr >
+      <th scope="col">Post Title</th>
+      <th scope="col">Post Author</th>
+      <th scope="col">Publish Date</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+{% for post in posts %}
+<tr>
+    <td class="pt-3"><a href="/post/{{post.id}}">{{post.title}}</a></td>
+    <td class="pt-3"><a href="/user/{{post.author}}">{{post.author}}</a></td>
+    <td class="pt-3">{{post.created_date}}</td>
+    <td><a href="/edit/{{post.id}}" type="button" class="btn btn-warning">Edit</a></td>
+    <td><a href="/delete/{{post.id}}" type="button" class="btn btn-danger">Delete</a></td>
+</tr>
+
+{% endfor %}
+
+  </tbody>
+</table>
+
+{% else %}
+
+<div class="alert alert-danger" role="alert">
+  No posts
+</div>
+
+{% endif %}

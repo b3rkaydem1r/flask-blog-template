@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/bootstrap.min.css') }}">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/main.css') }}">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/fontawesome.min.css') }}">
+    <title>{{data.title}} - {{data.name}}</title>
+</head>
+<body>
+<div class="container mt-2">
+
+<h1 class="site-name">{{data.name}}</h1>
+
+<div class="menu d-flex justify-content-center">
+
+<a href="/">
+<div class="menu-item {% if data.slug == '/' %} active-menu {% endif %} p-2">Homepage</div>
+</a>
+
+{% if session.authority %}
+
+{% if session.authority > 1 %}
+<a href="/dashboard">
+<div class="menu-item {% if data.slug == '/dashboard' %} active-menu {% endif %} p-2">Dashboard</div>
+</a>
+{% endif %}
+
+<a href="/user/{{session.username}}">
+<div class="menu-item {% if data.slug == '/user' %} active-menu {% endif %} p-2">Profile</div>
+</a>
+
+
+<a href="/logout">
+<div class="menu-item p-2">Logout</div>
+</a>
+
+
+{% else %}
+
+<a href="/login">
+<div class="menu-item {% if data.slug == '/login' %} active-menu {% endif %} p-2">Login</div>
+</a>
+
+<a href="/register"><div class="menu-item {% if data.slug == '/register' %} active-menu {% endif %} p-2">Register</div>
+</a>
+
+{% endif %}
+
+</div>
+
+{% include 'includes/_messages.html'%}

@@ -1,0 +1,19 @@
+{% include 'includes/_header.html' %}
+
+{% from "includes/_formhelpers.html" import render_field %}
+
+<div class="p-3">
+<form method = "post">
+  <dl>
+    {{ form.csrf_token }}
+    {{ render_field(form.title, class = 'form-control') }}
+    {{ render_field(form.content, class = 'form-control') }}
+  </dl>
+  <div class="pt-3 pb-5 mb-0 mb-md-5">
+  <button type="submit" class="btn btn-dark">Update Post</button>
+  </div>
+
+</form>
+</div>
+
+{% include 'includes/_footer.html' %}

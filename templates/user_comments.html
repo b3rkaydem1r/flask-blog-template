@@ -1,0 +1,19 @@
+{% include 'includes/_header.html' %}
+
+{% if comments %}
+
+{% for comment in comments %}
+
+<div class="media mb-4">
+    <div class="media-body">
+    <a href="/post/{{comment.post_id}}">{{comment.comment}}</a>
+        <hr>
+    </div>
+</div>
+
+
+{% endfor %}
+
+{% endif %}
+
+{% include 'includes/_footer.html' %}

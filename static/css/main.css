@@ -1,0 +1,146 @@
+@font-face{
+  font-family: 'Merriweather';
+  src: url('../ttf/Merriweather-Regular.ttf');
+}
+@font-face{
+  font-family: 'Manrope';
+  src: url('../ttf/Manrope-Regular.ttf');
+}
+body {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 500;
+  padding-top: 56px;
+  height: 100%;
+}
+footer {
+  position: relative;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+  height: 50px;
+  padding:15px;
+  background-color: #222;
+}
+a{
+  color: #222;
+  text-decoration: none !important;
+}
+a:hover{
+  color: #ca2017;
+}
+.ck-content{
+  min-height: 250px;
+}
+.site-name{
+  font-family: 'Merriweather', serif;
+  text-align: center;
+  margin-bottom: 50px;
+  cursor: default;
+}
+.site-name:hover{
+  color: #ca2017;
+}
+.post-title{
+  font-family: 'Merriweather', serif;
+  font-size: 40px;
+  text-align: center;
+  color: #222;
+  padding: 15px;
+  padding-bottom: 20px;
+  padding-top: 0px;
+  text-decoration: none !important;
+}
+.post-content{
+  font-weight: 400;
+  line-height: 1.6;
+  font-family: 'Merriweather', serif;
+  font-size: 1.3rem;
+  text-align: justify;
+}
+img{
+  max-width: 100%;
+}
+.image{
+  text-align: center;
+}
+.post-footer{
+  margin-bottom: 60px;
+}
+.single-post-footer{
+  margin-bottom: 30px;
+}
+.menu{
+  margin-bottom: 50px;
+}
+.menu-item{
+  border-radius: 4px;
+  text-transform: uppercase;
+  font-size: 1rem;
+  font-weight: 800;
+  margin-left: 5px;
+  margin-right: 5px;
+  padding-left: 15px !important;
+  padding-right: 15px !important;
+}
+.menu-item:hover{
+  background: #ca2017;
+  color: #fff;
+  cursor: pointer;
+}
+.menu-item:hover a{
+  color: #fff;
+}
+.active-menu a{
+  color: #fff !important;
+}
+.active-menu{
+  background: #ca2017;
+  color: #fff;
+}
+.leave-comment{
+  margin-bottom: 50px;
+}
+.leave-comment dt{
+  display: none;
+}
+.leave-comment-title{
+  font-size: 35px;
+  font-family: 'Merriweather', serif;
+  text-align: center;
+  margin-bottom: 15px;
+}
+.login{
+  margin-bottom: 80px;
+}
+.login-up{
+  margin-top: 85px !important;
+}
+i{
+  color: #666;
+}
+.dashboard-item{
+  color: black;
+  height: 100px;
+  text-align: center;
+  cursor: default;
+}
+.dashboard-item:hover{
+  color: white;
+  background-color: #ca2017;
+}
+#dashboard-add:hover{
+  background-color: green;
+}
+#dashboard-comments:hover{
+  background-color: rgb(0, 119, 255);
+}
+.dashboard-item p{
+  padding-top: 35px;
+}
+.center {
+  text-align: center;
+  border: 3px solid green;
+}
+.alert{
+  border-radius: 20px;
+}

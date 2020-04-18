@@ -1,0 +1,31 @@
+{% include 'includes/_header.html' %}
+
+<h3 class="text-center mt-5">Register</h3>
+
+<div class="row">
+
+<div class="col-4"></div>
+
+<div class="col-4 mt-5">
+
+{% from "includes/_formhelpers.html" import render_field %}
+<form method = "post">
+  <dl>
+    {{ form.csrf_token }}
+    {{ render_field(form.name, class = 'form-control') }}
+    {{ render_field(form.username, class = 'form-control') }}
+    {{ render_field(form.email, class = 'form-control') }}
+    {{ render_field(form.password, class = 'form-control') }}
+    {{ render_field(form.confirm, class = 'form-control') }}
+  </dl>
+  <div class="pt-3 pb-5 text-center"><button type="submit" class="btn btn-success">Register</button></div>
+
+</form>
+
+</div>
+
+<div class="col-4"></div>
+
+</div>
+
+{% include 'includes/_footer.html' %}

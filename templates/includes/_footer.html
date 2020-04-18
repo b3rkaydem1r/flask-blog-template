@@ -1,0 +1,24 @@
+</div>
+<!-- Footer -->
+<footer class="py-3 bg-dark">
+<div class="container">
+    <p class="m-0 text-center text-white">
+    {% if data.copyright %}
+        Copyright &copy;
+    {% endif %}
+    {{data.footer}}
+    </p>
+</div>
+<!-- /.container -->
+</footer>
+<script src="{{ url_for('static',filename='js/jquery-3.5.0.min.js') }}"></script>
+<script src="{{ url_for('static',filename='js/popper.min.js') }}"></script>
+<script src="{{ url_for('static',filename='js/bootstrap.min.js') }}"></script>
+<script src="{{ url_for('static',filename='js/ckeditor.js') }}"></script>
+<script src="{{ url_for('static',filename='js/javascript.js') }}"></script>
+<script>
+ClassicEditor
+        .create( document.querySelector( '#content' ) )
+</script>
+</body>
+</html>
