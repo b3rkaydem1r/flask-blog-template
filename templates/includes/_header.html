@@ -15,6 +15,30 @@
 
 <h1 class="site-name">{{data.name}}</h1>
 
+{% if request.MOBILE %}
+
+<div class='container mobile-menu'>
+<hr>
+  <header class='scroll'>
+    <nav class='flex'>
+      <span slug="/" class="nav-item {% if data.slug == '/' %} active-menu {% endif %}">Homepage</span>
+      {% if session.authority %}
+        {% if session.authority > 1 %}
+        <span slug="/dashboard" class="nav-item {% if data.slug == '/dashboard' %} active-menu {% endif %}">Dashboard</span>
+        {% endif %}
+        <span slug="/user/{{session.username}}" class="nav-item {% if data.slug == '/user' %} active-menu {% endif %}">Profile</span>
+        <span slug="/logout" class="nav-item {% if data.slug == '/logout' %} active-menu {% endif %}">Logout</span>
+        {% else %}
+        <span slug="/login" class="nav-item {% if data.slug == '/login' %} active-menu {% endif %}">Login</span>
+        <span slug="/register" class="nav-item {% if data.slug == '/register' %} active-menu {% endif %}">Register</span>
+        {% endif %}
+    </nav>
+  </header>
+<hr>
+</div>
+
+{% else %}
+
 <div class="menu d-flex justify-content-center">
 
 <a href="/">
@@ -51,5 +75,7 @@
 {% endif %}
 
 </div>
+
+{% endif %}
 
 {% include 'includes/_messages.html'%}

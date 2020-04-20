@@ -1,5 +1,6 @@
 from flask import Flask, render_template, flash, redirect, url_for, session, logging, request
 from flask_mysqldb import MySQL
+from flask_mobility import Mobility
 from passlib.hash import sha256_crypt
 import forms
 from functools import wraps
@@ -11,6 +12,7 @@ app = Flask(__name__)
 app.secret_key = 'CHANGE_THIS'
 csrf = CSRFProtect()
 mysql = MySQL(app)
+Mobility(app)
 blog = {}
 
 
@@ -93,6 +95,11 @@ def index():
     if result > 0:
         posts = cursor.fetchall()
         for post in posts:
+            content = post['content']
+            content = content.split()
+            if len(content) > 60:
+                space = " "
+                post['content'] = space.join(content[:60]) + '...'
             post['created_date'] = functions.time(post['created_date'])
         return render_template('home.html', data=blog, posts = posts)
     else:
@@ -520,4 +527,4 @@ def update(id):
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
